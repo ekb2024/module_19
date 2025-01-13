@@ -1,0 +1,18 @@
+Python manage.py shell
+from task1.models import Buyer
+Buyer.objects.all()
+Buyer.objects.create(name='Vas' , balance=1200 , age=27)
+Buyer.objects.create(name='Kimm' , balance=54.4 , age=32)
+Buyer.objects.create(name='Lenion' , balance=12, age=17)
+Buyer.objects.all()
+from task1.models import Game
+Game.objects.create(title='Call of Duty Modern Warfare', cost=101, size=78, description='confrontation with a terrorist organization',age_limited=True)
+Game.objects.create(title='Mass Effect 2', cost=82.2, size=10, description='about the mysterious race',age_limited=False)
+Game.objects.create(title='StarCraft 2: Wings of Liberty', cost=43.3, size=32, description='about the fate of Jim Raynor',age_limited=True)
+
+buyer1=Buyer.objects.get(id=1)
+buyer2=Buyer.objects.get(id=2)
+buyer3=Buyer.objects.get(id=3)
+Game.objects.get(id=1).buyer.set((buyer1, buyer2))
+Game.objects.get(id=2).buyer.set((buyer2, buyer3))
+Game.objects.get(id=3).buyer.set((buyer1, buyer2))
