@@ -22,11 +22,13 @@ Including another URLconf
 #     path('admin/', admin.site.urls),
 #     path('', index),
 # ]
+from django.contrib import admin
 from django.urls import path
 from  task1.views import *
 
 
 urlpatterns = [
+    path('admin/',admin.site.urls),
     path('platform/', func_platform),
     path('platform/games/', func_games),
     path('platform/cart/', func_cart),
