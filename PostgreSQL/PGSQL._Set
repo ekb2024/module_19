@@ -1,0 +1,24 @@
+Python manage.py shell
+>>> from task1.models import Buyer
+>>> Buyer.objects.all()
+<QuerySet []>
+>>> Buyer.objects.create(name="user 1", balance=110, age=27)
+<Buyer: user 1>
+>>> Buyer.objects.create(name="user 2", balance=550, age=31)
+<Buyer: user 2>
+>>> Buyer.objects.create(name="user 3", balance=10, age=18)
+<Buyer: user 3>
+>>> Buyer.objects.all()
+<QuerySet [<Buyer: user 1>, <Buyer: user 2>, <Buyer: user 3>]>
+>>> Buyer.objects.filter(id=1)
+<QuerySet [<Buyer: user 1>]>
+>>> buyers = Buyer.objects.filter(balance=110)
+>>> for buyer in buyers:
+...   print(buyer.name,buyer.age)
+...
+user 1 27
+>>> Buyer.objects.get(id=2).delete()
+(1, {'task1.Buyer': 1})
+>>> Buyer.objects.all()
+<QuerySet [<Buyer: user 1>, <Buyer: user 3>]>
+>>>
